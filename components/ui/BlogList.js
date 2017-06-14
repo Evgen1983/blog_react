@@ -8,12 +8,14 @@ const BlogList = ({ posts }) => (
   DOM.div(
     null,
     _.map(
-    posts,
-    (post) => {
-       return React.createElement(BlogItem, {key: post.id, post: post})
-        }
+      posts,
+      (post) => React.createElement(BlogItem, {key: post.id, post: post})     
     )
   )
-)
+);
+
+BlogList.propTypes = {
+  posts: PropTypes.array
+};
 
 export default BlogList;

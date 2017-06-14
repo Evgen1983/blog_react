@@ -23,7 +23,7 @@ const Image = (props) => (
     src: props.src,
     alt: props.text,
     style: {
-      width: 200,
+      width: 300,
       height: 200
     }
   })
