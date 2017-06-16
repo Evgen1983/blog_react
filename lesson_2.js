@@ -51,11 +51,7 @@ const posts = [
 
 /* Image */
 const Image = (props) => (
-  DOM.img({
-    src: props.src,
-    alt: props.text,
-    style: props.style
-  })
+  DOM.img({src, alt, style} = props)
 );
 
 Image.defaultProps = {
@@ -98,7 +94,7 @@ TextBox.propTypes = {
 const Meta = ({author, createdAt, updatedAt}) => (
   DOM.span(
     null,
-    `${author} Создано: ${createdAt} Обновлено: ${updatedAt}`
+    `${author}; ${(createdAt.length > 0) ? ('Создано:' + ' ' + createdAt +';' + ' ' + 'Обновлено:' + ' ' + updatedAt +';') : ''}`
   )
 );
 
@@ -156,21 +152,17 @@ Like.propTypes = {
 const BlogItem = ({ post }) => (
   DOM.div(
     null,
-    React.createElement(Image, post.image),
-    React.createElement('br'),
-    React.createElement(Meta, post.meta),
-    React.createElement('br'),
+    DOM.div(null, React.createElement(Image, post.image)),
+    DOM.div(null, React.createElement(Meta, post.meta)),
     React.createElement(TextBox, null, post.text),
     React.createElement(Like, { count: post.meta.likesCount })
   )
 );
 
 BlogItem.propTypes = {
-  post: PropTypes.shape({
-    image:  PropTypes.shape( Image.propTypes ),
-    meta: PropTypes.shape( Meta.propTypes ),
-    text: PropTypes.string
-  })
+  image:  PropTypes.shape( Image.propTypes ),
+  meta: PropTypes.shape( Meta.propTypes ),
+  text: PropTypes.string
 };
 /* /BlogItem */
 

@@ -1,11 +1,7 @@
 import React, { DOM } from 'react';
 
-onst Image = (props) => (
-  DOM.img({
-    src: props.src,
-    alt: props.text,
-    style: props.style
-  })
+const Image = (props) => (
+  DOM.img({src, alt, style} = props)
 );
 
 Image.defaultProps = {
