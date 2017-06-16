@@ -10,7 +10,7 @@ const posts = [
     },
     meta: {
       author: 'Фотограф 1',
-      createdAt: '2017-06-10',
+      createdAt: '2017-06-09',
       updatedAt: '2017-06-10',
       likesCount: 2
     },
@@ -50,8 +50,8 @@ const posts = [
 ];
 
 /* Image */
-const Image = (props) => (
-  DOM.img({src, alt, style} = props)
+const Image = ({src, alt, style}) => (
+  DOM.img({src, alt, style})
 );
 
 Image.defaultProps = {
@@ -94,7 +94,7 @@ TextBox.propTypes = {
 const Meta = ({author, createdAt, updatedAt}) => (
   DOM.span(
     null,
-    `${author}; ${(createdAt.length > 0) ? ('Создано:' + ' ' + createdAt +';' + ' ' + 'Обновлено:' + ' ' + updatedAt +';') : ''}`
+    `${author}; ${(createdAt) ? (`Создано: ${createdAt};`) : ''} ${(updatedAt) ? (`Обновлено: ${updatedAt};`) : ''}`
   )
 );
 

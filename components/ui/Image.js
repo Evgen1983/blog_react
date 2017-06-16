@@ -1,7 +1,7 @@
 import React, { DOM } from 'react';
 
-const Image = (props) => (
-  DOM.img({src, alt, style} = props)
+const Image = ({src, alt, style}) => (
+  DOM.img({src, alt, style})
 );
 
 Image.defaultProps = {
