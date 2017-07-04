@@ -1,38 +1,28 @@
 import React, { DOM } from 'react';
 
-class Like extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { count: props.count };
-  }
-
-  render() {
-    return DOM.div(
-      null,
+const Like = ({ postId, likesCount, updateLike }) => (
+  DOM.div(
+    null,
       React.createElement(
         'button',
-        {
-          onClick: () => (
-            this.setState({ count: ++this.state.count })
-          )
-        },
+        { onClick: () => updateLike(postId) },
         'Like'
       ),
       DOM.div(
         null,
-        DOM.span(null, `Likes: ${this.state.count}`)
+        DOM.span(null, `Likes: ${likesCount}`)
       )
-    )
-  }
-};
+  )
+);
 
 Like.defaultProps = {
-  count: 0
+  count: 0,
+  likesCount: 0
 };
 
 Like.propTypes = {
-  count: PropTypes.number
+  count: PropTypes.number,
+  updateLike: PropTypes.func.isRequired
 };
 
 export default Like;
