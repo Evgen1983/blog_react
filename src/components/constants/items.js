@@ -1,4 +1,5 @@
 export const posts = [
+  
   {
     id: 0,
     image: {
