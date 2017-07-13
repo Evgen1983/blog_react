@@ -1,7 +1,8 @@
 import React from 'react';
 import BlogList from '../ui/BlogList.js';
 import PieChart from '../ui/PieChart.js';
-
+import { posts } from '../constants/items';
+const { DOM } = React;
 
 class BlogPage extends React.Component {
   constructor(props) {

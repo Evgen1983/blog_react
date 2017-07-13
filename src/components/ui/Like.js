@@ -1,4 +1,5 @@
 import React, { DOM } from 'react';
+import PropTypes from 'prop-types';
 
 const Like = ({ postId, likesCount, updateLike }) => (
   DOM.div(

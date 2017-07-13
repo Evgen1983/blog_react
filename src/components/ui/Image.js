@@ -1,4 +1,5 @@
 import React, { DOM } from 'react';
+import PropTypes from 'prop-types';
 
 const Image = ({src, alt, style}) => (
   DOM.img({src, alt, style})

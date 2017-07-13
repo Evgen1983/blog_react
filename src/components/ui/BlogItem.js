@@ -1,4 +1,5 @@
 import React, { DOM } from 'react';
+import PropTypes from 'prop-types';
 import Image from './Image.js'
 import TextBox from './TextBox.js'
 import Meta from './Meta.js'
