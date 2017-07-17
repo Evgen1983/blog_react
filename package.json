@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/Evgen1983/blog_react#readme",
   "dependencies": {
+    "c3": "^0.4.14",
+    "d3": "^3.5.17",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "prop-types": "^15.5.10",
@@ -31,11 +33,13 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
+    "css-loader": "^0.28.4",
     "eslint": "^4.1.1",
     "eslint-plugin-destructuring": "^2.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-react": "^7.1.0",
     "react-hot-loader": "^3.0.0-beta.7",
+    "style-loader": "^0.18.2",
     "webpack": "^3.1.0",
     "webpack-dev-server": "^2.5.1"
   }
