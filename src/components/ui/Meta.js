@@ -1,10 +1,26 @@
-import React, { DOM } from 'react';
+import { DOM } from 'react';
 import PropTypes from 'prop-types';
 
-const Meta = ({author, createdAt, updatedAt}) => (
+const Meta = ({author, createdAt, updatedAt, likesCount}) => (
   DOM.span(
+    { className: 'list-group center-block', },
     null,
-    `${author}; ${(createdAt) ? (`Создано: ${createdAt};`) : ''} ${(updatedAt) ? (`Обновлено: ${updatedAt};`) : ''}`
+    DOM.li(
+      { className: 'list-group-item' }, 
+      `Автор: ${author};`
+    ),
+    DOM.li(
+      { className: 'list-group-item' }, 
+      `${(createdAt) ? (`Создано: ${createdAt};`) : ''}`
+    ),
+    DOM.li(
+      { className: 'list-group-item' }, 
+      `${(updatedAt) ? (`Обновлено: ${updatedAt};`) : ''}`
+    ),
+    DOM.li(
+      { className: 'list-group-item' }, 
+      `Понравилось: ${likesCount}`
+    )     
   )
 );
 

@@ -17,18 +17,29 @@ class BlogPage extends React.Component {
 
     posts[index].meta.likesCount++;
 
-    this.setState({ posts: posts });
+    this.setState({ posts });
   }
 
-   render() {
+  render() {
     return (
       DOM.div(
+        {
+          className: 'container'
+        },
+        DOM.div(
           null,
-          React.createElement(BlogList, { posts: this.state.posts, updateLike: this.updateLike }),
-          React.createElement(PieChart, {columns: this.state.posts.map( post => [ post.text, post.meta.likesCount ] )})
+          React.createElement(BlogList, {
+            posts: this.state.posts, 
+            updateLike: this.updateLike }),
+          React.createElement(PieChart, {
+            columns: this.state.posts.map( 
+              post => [ post.text, post.meta.likesCount ] 
+            )
+          })
+        )
       )
-    )
+    );
   }
-};
+}
 
 export default BlogPage;

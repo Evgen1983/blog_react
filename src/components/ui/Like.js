@@ -1,18 +1,17 @@
 import React, { DOM } from 'react';
 import PropTypes from 'prop-types';
 
-const Like = ({ postId, likesCount, updateLike }) => (
+const Like = ({ postId, updateLike }) => (
   DOM.div(
     null,
-      React.createElement(
-        'button',
-        { onClick: () => updateLike(postId) },
-        'Like'
-      ),
-      DOM.div(
-        null,
-        DOM.span(null, `Likes: ${likesCount}`)
-      )
+    React.createElement(
+      'button',
+      { 
+        className: 'btn btn-primary',
+        onClick: () => updateLike(postId)
+      },
+      'Like'
+    )
   )
 );
 
