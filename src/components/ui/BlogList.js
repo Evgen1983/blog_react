@@ -1,7 +1,6 @@
 import React, { DOM } from 'react';
-
+import PropTypes from 'prop-types';
 import _ from 'lodash';
-
 import BlogItem from './BlogItem.js';
 
 const BlogList = ({ posts, updateLike }) => (
@@ -9,8 +8,10 @@ const BlogList = ({ posts, updateLike }) => (
     null,
     _.map(
       posts,
-      (post) => React.createElement(BlogItem, {key: post.id, post, updateLike})     
-    )
+      (post) => (
+        React.createElement(BlogItem, {key: post.id, post, updateLike})     
+      )
+    )   
   )
 );
 
