@@ -1,8 +1,7 @@
-import { DOM } from 'react';
 import PropTypes from 'prop-types';
 
-const Image = ({src, alt, style}) => (
-  DOM.img({className: 'center-block', src, alt, style})
+const Image = ({ src, alt, style }) => (
+  <img className='center-block' src={src} alt={alt} style={style} />
 );
 
 Image.defaultProps = {
