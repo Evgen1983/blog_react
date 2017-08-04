@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BlogItem from '../ui/BlogItem.jsx';
+import BlogItem from 'components/ui/BlogItem';
 import request from 'superagent';
-import { API_PATH } from '../../constants/config.js';
+import { API_PATH } from 'constants/config';
 
 class Post extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { posts: [] };
+    this.state = { post: null };
   }
 
   componentDidMount() {
@@ -15,25 +15,36 @@ class Post extends React.Component {
   }
 
   fetchPosts() {
+    const { id } = this.props.match.params;
+
     request.get(
-      API_PATH,
+      `${API_PATH}/posts/${id}`,
       {},
-      (err, res) => (
-        this.setState({ posts: res.body })
-      )
+      (err, res) => {
+        if (!err)
+          this.setState({post: res.body});
+      }
     );
   }
 
+  updateLike(postId) {
+    request
+      .put(`${API_PATH}/posts/${postId}/like`)
+      .end((err, res) => {
+        if (!err && res.ok)
+          this.setState({ post: res.body });
+      });
+  }
+
+
   render() {
-    const { posts } = this.state;
     const { id } = this.props.match.params;
+    const { post } = this.state;
 
-    if (posts.length == 0 || !posts[id])
-      return false;
-
-    return (
-      <BlogItem key={id} post={posts[id]} />
-    );
+    return post
+      ? <BlogItem key={id} post={post} 
+        updateLike={ () => this.updateLike(id) }/>
+      : null;
   }
 }
 

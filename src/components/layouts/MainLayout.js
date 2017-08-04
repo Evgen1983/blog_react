@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 
 
@@ -18,14 +19,14 @@ MainLayout.propTypes = {
 const Logo = () => (
   <div className='header'>
     <div>
-      <Link to='/'>React blog</Link>
+      <Link to='/'>Blog</Link>
     </div>
   </div>
 );
 
 const Footer = () => (
   <div className='footer'>
-    Temp footer for react blog
+    2017 React blog
   </div>
 );
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import BlogList from '../ui/BlogList.jsx';
-import PieChart from '../ui/PieChart.jsx';
-import { API_PATH } from '../../constants/config.js';
+import BlogList from 'components/ui/BlogList';
+import PieChart from 'components/ui/PieChart';
+import { API_PATH } from 'constants/config';
 import request from 'superagent';
 
 class BlogPage extends React.Component {
@@ -16,27 +16,33 @@ class BlogPage extends React.Component {
   }
 
   fetchPosts() {
-    request.get(
-      API_PATH,
-      {},
-      (err, res) => this.setState({ posts: res.body })
-    );
+    request
+      .get(API_PATH)
+      .end((err, res) => {
+        if (!err && res.ok)
+          this.setState({ posts: res.body });
+      });
   }
   
   updateLike(postId) {
-    const index = this.state.posts.findIndex(post => post.id == postId);
-    const posts = this.state.posts; 
+    request
+      .put(`${API_PATH}/posts/${postId}/like`)
+      .end((err, res) => {
+        if (!err && res.ok) {
+          const index = this.state.posts.findIndex(post => post.id == postId);
+          const posts = this.state.posts; 
+          posts[index] = res.body;
 
-    posts[index].meta.likesCount++;
-
-    this.setState({ posts });
+          this.setState({ posts });
+        }
+      });
   }
 
   render() {
     return (
       <div className="container">
         <div>
-          <BlogList posts={this.state.posts} handleLike={this.updateLike}/>
+          <BlogList posts={this.state.posts} updateLike={this.updateLike}/>
           <PieChart columns={this.state.posts.map(
             post => [ post.text, post.meta.likesCount ]
           )} />

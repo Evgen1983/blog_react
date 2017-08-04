@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 const Like = ({ updateLike }) => (
   <div>
     {
-      handleLike
-        ? <button className='btn btn-primary' onClick={ () => handleLike() }>Like</button>
+      updateLike
+        ? <button className='btn btn-primary' onClick={ () => updateLike() }>Like</button>
         : <button className='btn btn-basic'>Like</button>
     }
   </div>

@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 var path = require('path');
 var webpack = require('webpack');
 var root = path.join(process.cwd(), 'src');
@@ -13,7 +11,7 @@ module.exports = {
   ],
 
   output: {
-    path: path.join(process.cwd(), 'dist'),
+    path: path.join(__dirname, 'dist'),
     publicPath: '/assets/',
     filename: 'bundle.js'
   },
@@ -21,15 +19,15 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
+        test: /\.(js|jsx)?$/,
+        use: [ 'babel-loader' ],
+        exclude: /node_modules/
       },
       {
         test: /\.css$/,
         loaders: [
           'style-loader',
-          'css-loader?importLoades=1'
+          'css-loader?importLoaders=1'
         ]
       },
       {
@@ -40,13 +38,16 @@ module.exports = {
   },
 
   resolve: {
+    extensions: ['.js', '.jsx'],
     modules: [
       'node_modules',
       './src',
       path.resolve(__dirname, 'dist')
-]
+    ]
   },
+
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ]
+
 };
