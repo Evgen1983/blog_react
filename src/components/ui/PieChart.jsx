@@ -1,4 +1,4 @@
-import React, { DOM } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import c3 from 'c3';
@@ -26,7 +26,7 @@ class PieChart extends React.Component {
 
   render() {
     return (
-      DOM.div({ ref: 'chart' })
+      <div ref='chart'></div>
     );
   }
 }

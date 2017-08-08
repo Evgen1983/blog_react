@@ -1,3 +1,4 @@
+
 #app .blog-item {
   margin: 25px;
   padding: 10px;
@@ -15,4 +16,21 @@
 }
 #app .blog-item button{
   width: 300px;
+}
+
+#app .header {
+  font-size: 30px;
+  background-color: #eee;
+  padding: 5px;
+}
+
+#app .go-back {
+  margin: 15px 0px;
+}
+
+#app .footer {
+  font-size: 15px;
+  background-color: #eee;
+  padding: 5px;
+  text-align: center;
 }

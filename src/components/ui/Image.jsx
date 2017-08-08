@@ -1,8 +1,9 @@
-import { DOM } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { API_PATH } from 'constants/config';
 
-const Image = ({src, alt, style}) => (
-  DOM.img({className: 'center-block', src, alt, style})
+const Image = ({ src, alt, style }) => (
+  <img className='center-block' src={API_PATH + src} alt={alt} style={style} />
 );
 
 Image.defaultProps = {
