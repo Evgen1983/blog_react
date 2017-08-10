@@ -5,7 +5,9 @@ const Like = ({ updateLike }) => (
   <div>
     {
       updateLike
-        ? <button className='btn btn-primary' onClick={ () => updateLike() }>Like</button>
+        ? <button className='btn btn-primary' onClick={ () => updateLike() }>
+          Like
+        </button>
         : <button className='btn btn-basic'>Like</button>
     }
   </div>
