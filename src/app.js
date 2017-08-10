@@ -1,3 +1,4 @@
+/* eslint-disable import/max-dependencies */
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -14,7 +15,7 @@ import routes from 'routes';
 import prepareData from 'helpers/prepareData';
 import DevTools from 'components/containers/devTools';
 import browserHistory from 'helpers/browserHistory';
-
+/* eslint-enable import/max-dependencies */
 
 function historyCb(location) {
   _.map(
