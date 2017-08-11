@@ -32,7 +32,13 @@ const Footer = () => (
 
 const GoBackButton = withRouter(({ history }) => (
   <div className='go-back'>
-    <button className='btn btn-info' onClick={history.goBack}>Назад</button>
+    {
+      history.location.pathname == '/'
+        ? <button className='btn btn-basic disabled'>Назад</button>
+        : <button className='btn btn-info' onClick={history.goBack}>
+          Назад
+        </button>
+    }
   </div>
 ));
 
