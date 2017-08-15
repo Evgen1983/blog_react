@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
-import BlogList from 'components/views/blogList';
-import { postsLike } from 'actions/posts';
+import BlogList from 'components/views/BlogList';
+
 
 const stateToProps = (state) => ({
   posts: state.posts.entries,
@@ -9,10 +9,5 @@ const stateToProps = (state) => ({
   error: state.posts.error
 });
 
-const actionsToProps = (dispatch) => ({
-  updateLike(postId, posts) {
-    dispatch(postsLike(postId, posts));
-  }
-});
 
-export default connect(stateToProps, actionsToProps)(BlogList);
+export default connect(stateToProps)(BlogList);

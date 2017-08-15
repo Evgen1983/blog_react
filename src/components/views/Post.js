@@ -1,12 +1,12 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import BlogItem from 'components/views/blogItem';
+import BlogItem from 'components/views/BlogItem';
 
 
-const Post = ({ post, updateLike }) => (
+const Post = ({ post }) => (
   post
-    ? <BlogItem key={post.id} post={post} 
-      updateLike={ () => updateLike(post.id) } />
+    ? <BlogItem key={post.id} post={post} />
     : null
 );
 

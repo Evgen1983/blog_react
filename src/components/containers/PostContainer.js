@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 
-import Post from 'components/views/post';
-import { postLike } from 'actions/post';
+import Post from 'components/views/Post';
 
 const stateToProps = (state) => ({
   post: state.post.entry,
@@ -9,10 +8,5 @@ const stateToProps = (state) => ({
   error: state.post.error
 });
 
-const actionsToProps = (dispatch) => ({
-  updateLike(postId) {
-    dispatch(postLike(postId));
-  }
-});
 
-export default connect(stateToProps, actionsToProps)(Post);
+export default connect(stateToProps)(Post);

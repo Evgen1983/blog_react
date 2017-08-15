@@ -1,5 +1,5 @@
-import PostsContainer from 'components/containers/postsContainer';
-import PostContainer from 'components/containers/postContainer';
+import PostsContainer from 'components/containers/PostsContainer';
+import PostContainer from 'components/containers/PostContainer';
 import { index, posts } from 'helpers/routes';
 import { fetchPosts } from 'actions/posts';
 import { fetchPost } from 'actions/post';

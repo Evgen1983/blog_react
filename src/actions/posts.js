@@ -18,7 +18,3 @@ export function fetchPosts() {
   };
 }
 
-export const changePage = (pageNumber) => ({
-  type: posts.POSTS_CHANGE_PAGE,
-  pageNumber
-});

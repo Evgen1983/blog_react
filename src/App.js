@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import _ from 'lodash';
+import { map } from 'lodash';
 
 import { Provider } from 'react-redux';
 import { matchPath } from 'react-router';
@@ -10,15 +10,15 @@ import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 
 import store from 'store';
-import MainLayout from 'components/layouts/mainLayout';
+import MainLayout from 'components/layouts/MainLayout';
 import routes from 'routes';
 import prepareData from 'helpers/prepareData';
-import DevTools from 'components/containers/devTools';
+import DevTools from 'components/containers/DevTools';
 import browserHistory from 'helpers/browserHistory';
 /* eslint-enable import/max-dependencies */
 
 function historyCb(location) {
-  _.map(
+  map(
     routes,
     route => {
       const match = matchPath(location.pathname, route);
