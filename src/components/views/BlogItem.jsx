@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import Image from 'components/ui/image';
-import TextBox from 'components/ui/textBox';
-import Meta from 'components/ui/meta';
-import Like from 'components/ui/like';
+import Image from 'components/ui/Image';
+import TextBox from 'components/ui/TextBox';
+import Meta from 'components/ui/Meta';
+import LikeContainer from 'components/containers/LikeContainer';
 
 import { posts } from 'helpers/routes';
 import browserHistory from 'helpers/browserHistory';
 
-const BlogItem = ({ post, updateLike }) => (
+const BlogItem = ({ post }) => (
   <div className='row blog-item text-center'>
     <Image {...post.image} />
     <TextBox>
@@ -21,7 +21,7 @@ const BlogItem = ({ post, updateLike }) => (
       }
     </TextBox>
     <Meta {...post.meta} />
-    <Like {...{updateLike}} />
+    <LikeContainer postId={post.id} />
   </div>
 );
 
