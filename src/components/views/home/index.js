@@ -3,10 +3,20 @@ import PropTypes from 'prop-types';
 
 import BlogList from 'components/views/home/BlogList';
 import PieChartContainer from 'components/containers/PieChartContainer';
-import PaginationContainer from 'components/containers/PaginationContainer';
+
+import Helmet from 'react-helmet';
 
 const Home = ({ posts }) => (
   <div className="container">
+    {
+      <Helmet
+        title='Home'
+        meta={[
+          { name: 'description', content: 'Blog home page' },
+          { name: 'keywords', content: 'Blog, posts, home' }
+        ]}
+      />
+    }
     <div className="row">
       <div className="col-md-6">
         <BlogList posts={posts} />
@@ -22,7 +32,7 @@ const Home = ({ posts }) => (
   </div>
 );
 
-BlogList.propTypes = {
+Home.propTypes = {
   posts: PropTypes.array
 };
 

@@ -17,7 +17,7 @@ import DevTools from 'components/containers/DevTools';
 import history from 'helpers/history';
 /* eslint-enable import/max-dependencies */
 
-const store = createStore(window.__INITIAL_STATE__);
+const store = createStore(window.__INITIAL_STATE__); // eslint-disable-line
 
 function historyCb(location) {
   map(
@@ -65,9 +65,8 @@ const App = () => (
 ReactDOM.render(
   <DevTools store={store} />,
   document.getElementById('devtools'),
-  () => delete window.__INITIAL_STATE__
+  () => delete window.__INITIAL_STATE__ // eslint-disable-line
+  
 );
-
-
 
 export default App;
