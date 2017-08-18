@@ -20,8 +20,6 @@ const Home = ({ posts }) => (
     <div className="row">
       <div className="col-md-6">
         <BlogList posts={posts} />
-
-        <PaginationContainer />
       </div>
 
       <div className="col-md-6">

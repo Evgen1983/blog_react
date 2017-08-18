@@ -1,3 +1,4 @@
+/* eslint-disable import/max-dependencies */
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
@@ -16,6 +17,7 @@ import createStore from 'store';
 import routes from 'routes';
 
 import prepareData from 'helpers/prepareData';
+/* eslint-enable import/max-dependencies */
 
 
 const store = createStore();

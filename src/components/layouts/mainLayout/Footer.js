@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => (
   <div className='footer'>
-    Temp footer for react blog
+    Footer for react blog
   </div>
 );
 

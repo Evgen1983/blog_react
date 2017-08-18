@@ -53,7 +53,6 @@ export default {
       __DEVELOPMENT__: true
     }),
     new webpack.HotModuleReplacementPlugin()
-  ],
+  ]
 
-  devtool: 'source-map'
 };

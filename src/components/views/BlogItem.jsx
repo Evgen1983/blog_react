@@ -31,8 +31,7 @@ BlogItem.propTypes = {
     meta: PropTypes.shape(Meta.propTypes),
     text: PropTypes.string,
     id: PropTypes.number
-  }),
-  updateLike: PropTypes.func
+  })
 };
 
 export default BlogItem;

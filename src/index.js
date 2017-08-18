@@ -6,6 +6,7 @@ import 'c3/c3.min.css';
 import '../bootstrap/css/bootstrap.min.css';
 import './css/style.css';
 
+
 const rootEl = document.getElementById('app');
 
 ReactDOM.render(
