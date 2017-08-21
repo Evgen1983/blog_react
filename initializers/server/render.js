@@ -20,8 +20,6 @@ import prepareData from 'helpers/prepareData';
 /* eslint-enable import/max-dependencies */
 
 
-const store = createStore();
-
 function matchRoutes(currentUrl) {
   const location = url.parse(currentUrl);
 
@@ -47,7 +45,7 @@ function matchRoutes(currentUrl) {
 
 export default (req, res) => {
   const matchedRoutes = compact(matchRoutes(req.url));
-
+  const store = createStore();
   Promise.all(
     compact(
       map(
