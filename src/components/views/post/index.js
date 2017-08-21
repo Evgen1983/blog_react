@@ -12,8 +12,8 @@ const Post = ({ post }) => (
       <Helmet
         title={post.text}
         meta={[
-          { name: 'description', content: post.text },
-          { name: 'keywords', content: post.text }
+          { name: 'description', content: post.title },
+          { name: 'keywords', content: post.title }
         ]}
       />
     }
