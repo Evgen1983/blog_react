@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import c3 from 'c3';
 
 
 class PieChart extends React.Component {
   componentDidMount() {
+    if (!__CLIENT__) return; // eslint-disable-line
+
+    const c3 = require('c3');
+    
     this.chart = c3.generate({
       bindto: ReactDOM.findDOMNode(this.refs.chart),
       data: {

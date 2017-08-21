@@ -8,14 +8,14 @@ import Meta from 'components/ui/Meta';
 import LikeContainer from 'components/containers/LikeContainer';
 
 import { posts } from 'helpers/routes';
-import browserHistory from 'helpers/browserHistory';
+import history from 'helpers/history';
 
 const BlogItem = ({ post }) => (
   <div className='row blog-item text-center'>
     <Image {...post.image} />
     <TextBox>
       {
-        browserHistory.location.pathname == posts(post.id)
+        history.location.pathname == posts(post.id)
           ? <div>{post.text}</div>
           : <Link to={posts(post.id)}> {post.text} </Link>
       }
@@ -31,8 +31,7 @@ BlogItem.propTypes = {
     meta: PropTypes.shape(Meta.propTypes),
     text: PropTypes.string,
     id: PropTypes.number
-  }),
-  updateLike: PropTypes.func
+  })
 };
 
 export default BlogItem;

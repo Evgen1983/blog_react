@@ -9,13 +9,15 @@ import { matchPath } from 'react-router';
 import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 
-import store from 'store';
-import MainLayout from 'components/layouts/MainLayout';
+import createStore from 'store';
+import MainLayout from 'components/layouts/mainLayout/index';
 import routes from 'routes';
 import prepareData from 'helpers/prepareData';
 import DevTools from 'components/containers/DevTools';
-import browserHistory from 'helpers/browserHistory';
+import history from 'helpers/history';
 /* eslint-enable import/max-dependencies */
+
+const store = createStore(window.__INITIAL_STATE__); // eslint-disable-line
 
 function historyCb(location) {
   map(
@@ -32,7 +34,7 @@ function historyCb(location) {
   );
 }
 
-browserHistory.listen((location) => {
+history.listen((location) => {
   historyCb(location);
 });
 
@@ -40,7 +42,7 @@ historyCb(window.location);
 
 const App = () => (
   <Provider store={store}>
-    <ConnectedRouter history={browserHistory}>
+    <ConnectedRouter history={history}>
       <MainLayout>
         <Switch>
           {
@@ -62,8 +64,9 @@ const App = () => (
 
 ReactDOM.render(
   <DevTools store={store} />,
-  document.getElementById('devtools')
+  document.getElementById('devtools'),
+  () => delete window.__INITIAL_STATE__ // eslint-disable-line
+  
 );
-
 
 export default App;
