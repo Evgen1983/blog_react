@@ -10,7 +10,7 @@ const Post = ({ post }) => (
   <div>
     { post &&
       <Helmet
-        title={post.text}
+        title={post.title}
         meta={[
           { name: 'description', content: post.title },
           { name: 'keywords', content: post.title }

@@ -1,7 +1,8 @@
 import PostsContainer from 'components/containers/PostsContainer';
 import PostContainer from 'components/containers/PostContainer';
 import Contacts from 'components/views/contacts/index';
-import { index, posts, contacts } from 'helpers/routes';
+import PostEditContainer from 'components/containers/PostEditContainer';
+import { index, posts, contacts, postEdit } from 'helpers/routes';
 import { fetchPosts } from 'actions/posts';
 import { fetchPost } from 'actions/post';
 import initialLoad from 'helpers/initialLoad';
@@ -24,13 +25,19 @@ export default [
       if (initialLoad() || !params.id) return;
       return store.dispatch(fetchPost(params.id));
     }
-  },
-  
+  }, 
   {
     path: contacts(),
     component: Contacts,
     prepareData: () => {}
+  },
+  {
+    path: postEdit(),
+    component: PostEditContainer,
+    prepareData: (store, query, params) => {
+      if (initialLoad() || !params.id) return;
+      return store.dispatch(fetchPost(params.id));
+    }
   }
-
 ];
 

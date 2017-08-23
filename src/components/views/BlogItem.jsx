@@ -7,7 +7,7 @@ import TextBox from 'components/ui/TextBox';
 import Meta from 'components/ui/Meta';
 import LikeContainer from 'components/containers/LikeContainer';
 
-import { posts } from 'helpers/routes';
+import { posts, postEdit } from 'helpers/routes';
 import history from 'helpers/history';
 
 const BlogItem = ({ post }) => (
@@ -22,6 +22,7 @@ const BlogItem = ({ post }) => (
     </TextBox>
     <Meta {...post.meta} />
     <LikeContainer postId={post.id} />
+    <Link to={postEdit(post.id)}>Edit</Link>
   </div>
 );
 
