@@ -30,7 +30,7 @@ const nextAction = (action, data) => (
   assign({}, action, data, { [API_CALL]: undefined })
 );
 
-export default store => next => action => {
+export default store => next => action => { // eslint-disable-line
   if (!action[API_CALL])
     return next(action);
 

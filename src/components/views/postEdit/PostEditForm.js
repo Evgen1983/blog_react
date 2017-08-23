@@ -7,12 +7,20 @@ import InputField from 'components/ui/form/InputField';
 
 const PostEditForm = ({ handleSubmit, pristine, submitting, reset }) => (
   <form onSubmit={handleSubmit}>
-    <Field label="Title" component={InputField} type="text" name="title"/>
+    <Field label="Title" 
+      component={InputField} 
+      type="text" 
+      name="title"/>
+
     <Field label="Created At"
       component={InputField}
       type="text"
       name="createdAt"/>
-    <Field label="Author" component={InputField} type="text" name="author"/>
+
+    <Field label="Author" 
+      component={InputField} 
+      type="text" 
+      name="author"/>
 
     {
       (!pristine && !submitting)
