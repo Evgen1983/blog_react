@@ -8,17 +8,13 @@ import Meta from 'components/ui/Meta';
 import LikeContainer from 'components/containers/LikeContainer';
 
 import { posts, postEdit } from 'helpers/routes';
-import history from 'helpers/history';
+
 
 const BlogItem = ({ post }) => (
   <div className='row blog-item text-center'>
     <Image {...post.image} />
     <TextBox>
-      {
-        history.location.pathname == posts(post.id)
-          ? <div>{post.title}</div>
-          : <Link to={posts(post.id)}> {post.title} </Link>
-      }
+      <Link to={posts(post.id)}>{post.title}</Link>
     </TextBox>
     <Meta {...post.meta} />
     <LikeContainer postId={post.id} />
@@ -33,6 +29,10 @@ BlogItem.propTypes = {
     title: PropTypes.string,
     id: PropTypes.number
   })
+};
+
+BlogItem.defaultProps = {
+  post: {}
 };
 
 export default BlogItem;
