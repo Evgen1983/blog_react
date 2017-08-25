@@ -14,7 +14,6 @@ switch(process.env.TARGET) {
     global.__PRODUCTION__ = true;
     break;
   case 'development':
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
     global.__DEVELOPMENT__ = true;
     break;
 
